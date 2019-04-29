@@ -1,17 +1,19 @@
-import { of } from "rxjs/"
+import { of } from 'rxjs/';
 
 class Store {
-  store={};
-  
-  has(url){
-    return!!this.store[url]
+  store = {};
+
+  has(url) {
+    return!!this.store[url];
   }
-  set(data,url){
-    this.store[url]=JSON.stringify(data);
+  set(data, url) {
+    this.store[url] = JSON.stringify(data);
+    // localStorage.setItem(url, JSON.stringify(data));
+    console.log(this.store);
     return data;
   }
 
-  get(url){
+  get(url) {
     return of(JSON.parse(this.store[url]));
   }
 }
